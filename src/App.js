@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import WebFrame from './pagedraw/webframe';
 import './App.css';
 
 class App extends Component {
+  // components constructor
+  constructor(props){
+    
+    // required call to super
+    super(props);
+
+    // initial state
+    this.state = {
+      text: ''
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <WebFrame
+          text = {this.state.text}
+          onClick={this.onClick.bind(this)}
+          />
       </div>
     );
+  }
+
+  onClick(){
+    alert("Hello there");
+
+    this.setState({
+      text: "$40.00"
+    });
   }
 }
 
